@@ -1,0 +1,65 @@
+import React from "react";
+import "./today_detail.css";
+import { LuEye } from "react-icons/lu";
+
+export interface TodayDetailProps {
+  visibility: string;
+  humidity: string;
+  windSpeed: string;
+  airPressure: string;
+  sunrise: string;
+  sunset: string;
+}
+
+export interface SingleWeatherDetailProps {
+  information: string;
+  icon: React.ReactNode; //날씨 정보(텍스트)
+  value: string; //날씨 정보(이미지명)
+}
+
+export default function TodayDetail(props: TodayDetailProps) {
+  return (
+    <>
+      <SingleWeatherDetail
+        information="가시성"
+        icon={<LuEye />}
+        value={props.visibility}
+      />
+      <SingleWeatherDetail
+        information="습도"
+        icon={<LuEye />}
+        value={props.humidity}
+      />
+      <SingleWeatherDetail
+        information="풍속"
+        icon={<LuEye />}
+        value={props.windSpeed}
+      />
+      <SingleWeatherDetail
+        information="기압"
+        icon={<LuEye />}
+        value={props.airPressure}
+      />
+      <SingleWeatherDetail
+        information="일출 시간"
+        icon={<LuEye />}
+        value={props.sunrise}
+      />
+      <SingleWeatherDetail
+        information="일몰 시간"
+        icon={<LuEye />}
+        value={props.sunset}
+      />
+    </>
+  );
+}
+
+function SingleWeatherDetail(props: SingleWeatherDetailProps) {
+  return (
+    <div className="todaydetail-item">
+      <p className="todaydetail-info-text">{props.information}</p>
+      <div className="todaydetail-icon-size">{props.icon}</div>
+      <p>{props.value}</p>
+    </div>
+  );
+}
