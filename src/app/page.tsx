@@ -213,7 +213,7 @@ export default function Home() {
             <ListBox className="box-style4">
               <TodayDetail
                 visibility={todayData?.visibility}
-                humidity={`${todayData?.main.humidity}%`}
+                humidity={`${todayData?.main.humidity}`}
                 windSpeed={todayData?.wind.speed}
                 airPressure={todayData?.main.pressure}
                 sunrise={data?.city.sunrise}
