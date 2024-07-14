@@ -1,6 +1,9 @@
 import React from "react";
 import "./today_detail.css";
-import { LuEye } from "react-icons/lu";
+import { LuEye, LuSunrise, LuSunset } from "react-icons/lu";
+import { FiDroplet } from "react-icons/fi";
+import { MdAir } from "react-icons/md";
+import { ImMeter } from "react-icons/im";
 
 export interface TodayDetailProps {
   visibility: string;
@@ -27,27 +30,27 @@ export default function TodayDetail(props: TodayDetailProps) {
       />
       <SingleWeatherDetail
         information="습도"
-        icon={<LuEye />}
+        icon={<FiDroplet />}
         value={props.humidity}
       />
       <SingleWeatherDetail
         information="풍속"
-        icon={<LuEye />}
+        icon={<MdAir />}
         value={props.windSpeed}
       />
       <SingleWeatherDetail
         information="기압"
-        icon={<LuEye />}
+        icon={<ImMeter />}
         value={props.airPressure}
       />
       <SingleWeatherDetail
         information="일출 시간"
-        icon={<LuEye />}
+        icon={<LuSunrise />}
         value={props.sunrise}
       />
       <SingleWeatherDetail
         information="일몰 시간"
-        icon={<LuEye />}
+        icon={<LuSunset />}
         value={props.sunset}
       />
     </>

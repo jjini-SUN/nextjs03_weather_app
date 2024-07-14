@@ -22,7 +22,7 @@ export default function Navbar(props: Props) {
     if (value.length >= 3) {
       try {
         const res = await axios.get(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${place}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&cnt=56`
+          `https://api.openweathermap.org/data/2.5/forecast?q=${value}&appid=${process.env.NEXT_PUBLIC_WEATHER_KEY}&cnt=56`
         );
       } catch (error) {
         console.log(error);
@@ -55,9 +55,10 @@ export default function Navbar(props: Props) {
             {/* 입력창 */}
             <SearchBox
               searchValue={city}
-              onChange={(e) => handleInputChange(e.target.value)}
-              onSubmit={handleSubmitSearch}
+              onChange={(e) => handleInputChange(e.target.value)} //함수 사용함
+              onSubmit={handleSubmitSearch} //함수의 위치 넘김
             />
+            {error && <p style={{ color: "red" }}>{error}</p>}
           </div>
         </section>
       </div>
@@ -68,3 +69,15 @@ export default function Navbar(props: Props) {
 // 리액트 아이콘 (글자)
 // npm install react-icons --save
 // 위처럼 하면 구글에 리액트 아이콘 치고 들어가서 나오는 것들 쓸 수 있음
+
+// chatGPT API 사용법
+// npm install openai
+// chatGPT API 사이트 로그인
+// 상단 Dashboard -> API Keys로 접속
+// Create new secret key
+// Name 입력 후 생성
+// Secret Key 백업 !!!
+//
+// 우측 상단의 Setting에서 Billing 접속하여 잔여요금확인
+// 잔여요금 0원이면 add payment details 에서 카드 등록하고 충전  (자동 충전 체크박스 해제)
+// (첫카드 등록시 5달러 제공)
